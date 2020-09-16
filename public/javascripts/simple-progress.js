@@ -3,11 +3,11 @@ let progress = 0,
     $dish = $('#carrots'),
     $output = $('#output');
 
-$('button').on('click', () => {
+$('button').one('click', () => {
 
     interval = setInterval(() => {
 
-        progress += 10;
+        progress += Math.floor(Math.random() * 10);
 
         $dish.attr('value', progress).text(`${progress}%`);
 
@@ -16,8 +16,8 @@ $('button').on('click', () => {
             clearInterval(interval);
 
             $('<div>', {
-                "text": 'Your carrots are now cooked 🥕',
+                'text': 'Your 🥕 is cooked',
             }).appendTo($output)
         }
-    }, 1000)
+    }, 250)
 })

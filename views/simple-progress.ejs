@@ -1,7 +1,7 @@
 <%- include('includes/header') -%>
 <p>This example uses the HTML progress element only.</p>
 <h2>Example</h2>
-<p>This is a simple cooking programme.
+<p>This is a simple carrot cooking app.
     <button>Start cooking</button>
 <p>
     <label for="carrots">Carrot cooking progress</label>
@@ -9,4 +9,13 @@
 </p>
 
 <div id="output"></div>
+<h2>Notes on this approach</h2>
+<p>These are some of the things to note from the VoiceOver perspective:</p>
+<ul>
+    <li>✅ Using the progress HTML element means changes are exposed to the accessibility API for free</li>
+    <li>🛑 No information is provided to the user once they've clicked the button. They're left to hunt around for the progress element</li>
+    <li>🛑 The user has to be on the progress element hear changes</li>
+    <li>🛑 Only the current state is read to the user. If it changes while they're still on it, no notification is provided</li>
+    <li>🛑 The user isn't notified when the 'Your 🥕 is cooked' DOM element is inserted</li>
+</ul>
 <%- include('includes/footer') -%>

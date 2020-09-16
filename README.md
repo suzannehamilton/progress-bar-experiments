@@ -18,3 +18,4 @@ The real value here comes from experiencing this application as a user of assist
 * Toggle VoiceOver on or off with Command + F5
 * Move around the page with Control + Option + arrow key
 * Click a button with Control + Option + Space
+* To read the current 'pointer' item use F5 + Control + Option  
