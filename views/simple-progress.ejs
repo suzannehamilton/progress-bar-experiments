@@ -14,8 +14,9 @@
 <ul>
     <li>✅ Using the progress HTML element means changes are exposed to the accessibility API for free</li>
     <li>❌ No information is provided to the user once they've clicked the button. They're left to hunt around for the progress element</li>
-    <li>❌ The user has to be on the progress element hear changes</li>
-    <li>❌ Only the current state is read to the user. If it changes while they're still on it, no notification is provided</li>
-    <li>❌ The user isn't notified when the 'Your 🥕 is cooked' DOM element is inserted</li>
+    <li>❌ We don't indicate that the task has commenced or that the button is busy</li>
+    <li>❌ The user has to be focussed on the progress element be notified of changes</li>
+    <li>❌ If the user finds the progress element, only the current state is announced. If it changes while they're still on it, no notification is provided</li>
+    <li>❌ The user isn't notified when the 'Your 🥕 is cooked' message is provided</li>
 </ul>
 <%- include('includes/footer') -%>

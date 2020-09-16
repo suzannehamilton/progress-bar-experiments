@@ -17,6 +17,8 @@
     <li>✅ Notifies users of commencement</li>
     <li>✅ Notifies users of progress status (perhaps a bit much? Could be debounced maybe)</li>
     <li>✅ Notifies users of completion</li>
-    <li>❓ Would it be better to manage the user focus so that they are moved to an appropriate place after the event</li>
+    <li>❌ We're not doing anything to manage the button after it's been clicked. It stays there but is not functional. That would need to be fixed.</li>
+    <li>❌ In some circumstances I'm encountering a race condition because the alert role is more assertive than status</li>
+    <li>❓ Would it be better to manage the user focus so that they are moved to an appropriate place on completion?</li>
 </ul>
 <%- include('includes/footer') -%>
