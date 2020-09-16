@@ -1,6 +1,6 @@
 # Progress bar experiments
 
-A little playground for Code Club on 18 September 2020. Sorry, but I've pulled this together really quickly so things might be a little 'Mac' focussed.
+A little playground for Code Club on 18 September 2020. Sorry, but I've pulled this together really quickly so things might be a little 'Mac' focussed (and the code isn't great - but it should suffice for demonstration / discussion purpose)
 
 ## Getting the code running
 

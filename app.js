@@ -9,6 +9,7 @@ var simpleProgressRouter = require('./routes/simple-progress');
 var simpleProgressWithFocusManagementRouter = require('./routes/simple-progress-with-focus-management');
 var simpleProgressWithLiveRegionRouter = require('./routes/simple-progress-with-live-region');
 var simpleProgressWithRealtimeUpdatesRouter = require('./routes/simple-progress-with-realtime-updates');
+var multipleProgressWithUpdatesRouter = require('./routes/multiple-progress-with-updates');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/simple-progress', simpleProgressRouter);
 app.use('/simple-progress-with-focus-management', simpleProgressWithFocusManagementRouter);
 app.use('/simple-progress-with-live-region', simpleProgressWithLiveRegionRouter);
 app.use('/simple-progress-with-realtime-updates', simpleProgressWithRealtimeUpdatesRouter);
+app.use('/multiple-progress-with-updates', multipleProgressWithUpdatesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
