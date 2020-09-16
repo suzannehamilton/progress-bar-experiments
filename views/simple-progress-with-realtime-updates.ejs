@@ -1,0 +1,22 @@
+<%- include('includes/header') -%>
+<p>This example uses the HTML progress element and the ARIA status and alert roles to inform users of commencement, progress and completion </p>
+<h2>Example</h2>
+<p>This is a simple carrot cooking app.
+    <button>Start cooking</button>
+<p>
+    <label for="carrots">Carrot cooking progress <span role="status" id="status"></span></label>
+    <progress id="carrots" max="100" value="0">0%</progress>
+</p>
+<div role="status" id="status"></div>
+<div role="alert" id="complete"></div>
+
+<h2>Notes on this approach</h2>
+<p>These are some of the things to note from the VoiceOver perspective:</p>
+<ul>
+    <li>✅ Using the progress HTML element means changes are exposed to the accessibility API for free</li>
+    <li>✅ Notifies users of commencement</li>
+    <li>✅ Notifies users of progress status (perhaps a bit much? Could be debounced maybe)</li>
+    <li>✅ Notifies users of completion</li>
+    <li>❓ Would it be better to manage the user focus so that they are moved to an appropriate place after the event</li>
+</ul>
+<%- include('includes/footer') -%>
