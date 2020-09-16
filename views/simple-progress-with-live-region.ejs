@@ -1,0 +1,19 @@
+<%- include('includes/header') -%>
+<p>This example uses the HTML progress element in combination with an aria-live region</p>
+<h2>Example</h2>
+<p>This is a simple carrot cooking app.
+    <button>Start cooking</button>
+<p>
+    <label for="carrots">Carrot cooking progress</label>
+    <progress id="carrots" max="100" value="0">0%</progress>
+</p>
+<div id="output" role="region" aria-live="polite"></div>
+
+<h2>Notes on this approach</h2>
+<p>These are some of the things to note from the VoiceOver perspective:</p>
+<ul>
+    <li>✅ Using the progress HTML element means changes are exposed to the accessibility API for free</li>
+    <li>✅ We tell the user when the task is finished</li>
+    <li>❌ It does not indicate to the user how their task is progressing</li>
+</ul>
+<%- include('includes/footer') -%>

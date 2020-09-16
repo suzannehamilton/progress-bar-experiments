@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var simpleProgressRouter = require('./routes/simple-progress');
 var simpleProgressWithFocusManagementRouter = require('./routes/simple-progress-with-focus-management');
+var simpleProgressWithLiveRegionRouter = require('./routes/simple-progress-with-live-region');
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/simple-progress', simpleProgressRouter);
 app.use('/simple-progress-with-focus-management', simpleProgressWithFocusManagementRouter);
+app.use('/simple-progress-with-live-region', simpleProgressWithLiveRegionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
