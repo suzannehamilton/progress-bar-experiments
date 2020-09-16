@@ -1,0 +1,25 @@
+<%- include('includes/header') -%>
+<p>This example uses the HTML progress element only with some focus management. To allow the progress element receive focus programmatically, we have added <code>tabindex=-1</code></p>
+<h2>Example</h2>
+<p>This is a simple carrot cooking app.
+    <button>Start cooking</button>
+<p>
+    <label for="carrots">Carrot cooking progress</label>
+    <progress id="carrots" max="100" value="0" tabindex="-1">0%</progress>
+</p>
+
+<div id="output"></div>
+<h2>Notes on this approach</h2>
+<p>These are some of the things to note from the VoiceOver perspective:</p>
+<ul>
+    <li>✅ Using the progress HTML element means changes are exposed to the accessibility API for free</li>
+    <li>❓ Focus is moved to the progress element automatically, which:
+        <ul>
+            <li><em>Might</em> be good in that the user doesn't have to hunt around for where progress is</li>
+            <li><em>Might</em> be problematic because we're taking over the user experience</li>
+        </ul>
+    </li>
+    <li>❌ The changing state of progress is not communicated to the user (although they do have the option of 're-reading' the element with F5 + Control + Option)</li>
+    <li>❌ The user isn't notified when the 'Your 🥕 is cooked' DOM element is inserted</li>
+</ul>
+<%- include('includes/footer') -%>
