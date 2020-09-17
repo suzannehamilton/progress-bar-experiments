@@ -5,7 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Progress bar experiments',
-    script: 'index'
+    script: 'index',
+    sr: (req.query.sr == 'true') ? true : false
   });
 });
 
