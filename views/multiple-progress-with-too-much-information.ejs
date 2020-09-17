@@ -1,0 +1,25 @@
+<%- include('includes/header') -%>
+<p>This example has multiple HTML progress elements and injects multiple 'status' elements to notify of start, individual element progress and completion and overall completion.</p>
+<h2>Example</h2>
+<p>This is simple vegetable cooking app. Click the button to begin..
+    <button>Start cooking</button>
+<p>
+    <label for="carrots">Carrot cooking progress <span id="carrot_status" role="status"></span></label>
+    <progress id="carrots" max="100" value="0">0%</progress>
+</p>
+<p>
+    <label for="potato">Potato cooking progress <span id="potato_status" role="status"></span></label>
+    <progress id="potato" max="100" value="0">0%</progress>
+</p>
+<div id="complete"></div>
+
+<h2>Notes on this approach</h2>
+<p>These are some of the things to note from the VoiceOver perspective:</p>
+<ul>
+    <li>✅ Using the progress HTML element means changes are exposed to the accessibility API for free</li>
+    <li>✅ Notifies users of commencement</li>
+    <li>✅ Notifies users of progress status</li>
+    <li>✅ Notifies users of completion</li>
+    <li>❌ A firehose of information.</li>
+</ul>
+<%- include('includes/footer') -%>
