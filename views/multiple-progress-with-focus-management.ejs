@@ -1,0 +1,28 @@
+<%- include('includes/header') -%>
+<p>This example has multiple HTML progress elements and injects multiple 'status' elements to notify of start, individual element completion and overall completion. It also: removes the clicked button; moves the user's focus to status messages when they appear, and; includes a 'next step' link on completion.</p>
+<h2>Example</h2>
+<p>This is simple vegetable cooking app. Click the button to begin..
+    <button>Start cooking</button>
+<p>
+    <label for="carrots">Carrot cooking progress <span id="carrot_status"></span></label>
+    <progress id="carrots" max="100" value="0">0%</progress>
+</p>
+<p>
+    <label for="potato">Potato cooking progress <span id="potato_status"></span></label>
+    <progress id="potato" max="100" value="0">0%</progress>
+</p>
+<div id="complete"></div>
+
+<h2>Notes on this approach</h2>
+<p>These are some of the things to note from the VoiceOver perspective:</p>
+<ul>
+    <li>✅ Using the progress HTML element means changes are exposed to the accessibility API for free</li>
+    <li>✅ Notifies users of commencement</li>
+    <li>✅ Notifies users of progress status (but only on sub-task completion)</li>
+    <li>✅ Notifies users of completion</li>
+    <li>✅ Removing the button after it's been clicked and moving focus to the first status element</li>
+    <li>❓ Do we need to indicate that the task is busy in some way?</li>
+    <li>❓ Is it a good practice to inject multiple 'status' elements? It feels like it might be overly simplistic</li>
+    <li>❓ Could we do something to notify the user of overall progress at set intervals (i.e. '75% complete... 95% complete') ?</li>
+</ul>
+<%- include('includes/footer') -%>
