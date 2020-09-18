@@ -19,7 +19,6 @@ $('button').one('click', (e) => {
         'tabindex': '-1'
     })
         .prependTo($complete)
-        .focus();
 
     carrot_interval = setInterval(() => {
 
@@ -45,7 +44,6 @@ $('button').one('click', (e) => {
                 'tabindex': '-1'
             })
                 .appendTo($complete_list)
-                .focus();
         }
     }, 1000)
 
@@ -73,17 +71,15 @@ $('button').one('click', (e) => {
                 'tabindex': '-1'
             })
                 .appendTo($complete_list)
-                .focus();
 
         }
-    }, 333)
+    }, 500  )
 
     complete_interval = setInterval(() => {
 
         if ($complete_list.find('li').length === 2) {
             $('<div>', {
                 'html': '<a href="/">All done. Enjoy your next step</a>',
-                'role': 'status',
                 'tabindex': '-1'
             })
                 .appendTo($complete)
@@ -92,5 +88,5 @@ $('button').one('click', (e) => {
             clearInterval(complete_interval);
         }
 
-    }, 500)
+    }, 1500)
 })
