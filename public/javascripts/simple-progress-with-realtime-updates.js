@@ -60,7 +60,10 @@ function throttleProgress(updateProgressFunction, waitMilliseconds) {
       lastExecutionTime = currentTimestamp;
       timeout = null;
       updateProgressFunction(progress);
-    } else if (!timeout) {
+    } else if (timeout) {
+      console.log(`Timeout was already scheduled, so updating progress to  with progress ${progress}`);
+      latestProgress = progress;
+    } else {
       const nextExecutionDelayMillis = waitMilliseconds - timeSinceLastExecutionMillis;
       console.log(`There was a recent execution and none is scheduled, so setting timeout in ${nextExecutionDelayMillis} ms with progress ${progress}`);
       timeout = setTimeout(() => {
@@ -69,9 +72,6 @@ function throttleProgress(updateProgressFunction, waitMilliseconds) {
         timeout = null;
         lastExecutionTime = Date.now();
       }, nextExecutionDelayMillis)
-    } else {
-      console.log(`Timeout was already scheduled, so updating progress to  with progress ${progress}`);
-      latestProgress = progress;
     }
   }
 }
