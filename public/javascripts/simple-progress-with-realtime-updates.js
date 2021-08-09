@@ -5,6 +5,11 @@ let progress = 0,
     $status = $('#visible-status'),
     $ariaStatus = $('#approximate-status');
 
+const updateProgress = throttleProgress((progress) => {
+    $ariaStatus
+        .text(`${progress}%`)
+}, 5000)
+
 $('button').one('click', () => {
 
     $('<div>', {
@@ -25,8 +30,7 @@ $('button').one('click', () => {
         $status
             .text(`${progress}%`)
 
-        $ariaStatus
-            .text(`${10 * progress}%`)
+        updateProgress(progress)
 
         if (progress >= $dish.attr('max')) {
 
@@ -40,3 +44,34 @@ $('button').one('click', () => {
         }
     }, 1000)
 })
+
+function throttleProgress(updateProgressFunction, waitMilliseconds) {
+  var latestProgress = null;
+  var lastExecutionTime = 0;
+  var timeout = null;
+
+  return function(progress) {
+    const currentTimestamp = Date.now();
+    console.log(`currentTimestamp is ${currentTimestamp}`)
+    const timeSinceLastExecutionMillis = currentTimestamp - lastExecutionTime;
+
+    if (timeSinceLastExecutionMillis > waitMilliseconds) {
+      console.log(`Time since last execution is ${timeSinceLastExecutionMillis} ms, wait time is ${waitMilliseconds}, so executing immediately with progress ${progress}`);
+      lastExecutionTime = currentTimestamp;
+      timeout = null;
+      updateProgressFunction(progress);
+    } else if (!timeout) {
+      const nextExecutionDelayMillis = waitMilliseconds - timeSinceLastExecutionMillis;
+      console.log(`There was a recent execution and none is scheduled, so setting timeout in ${nextExecutionDelayMillis} ms with progress ${progress}`);
+      timeout = setTimeout(() => {
+        console.log(`Actually updating progress with value ${latestProgress}`)
+        updateProgressFunction(latestProgress);
+        timeout = null;
+        lastExecutionTime = Date.now();
+      }, nextExecutionDelayMillis)
+    } else {
+      console.log(`Timeout was already scheduled, so updating progress to  with progress ${progress}`);
+      latestProgress = progress;
+    }
+  }
+}
