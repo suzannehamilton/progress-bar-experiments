@@ -32,6 +32,17 @@ button {
   color: #CCC;
 }
 
+/* Hacky way of making the approximate status only visible to screen readers.
+Need to discuss a better way of doing this! */
+#approximate-status {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
 .sr_only {
   position:absolute;
   left:-10000px;

@@ -4,10 +4,10 @@
 <p>This is simple carrot cooking app. Click the button to begin..
     <button>Start cooking</button>
 <p>
-    <label for="carrots">Carrot cooking progress <span role="status" id="status"></span></label>
+    <label for="carrots">Carrot cooking progress <span aria-hidden="true" id="visible-status"></span><span role="status" id="approximate-status"></span></label>
     <progress id="carrots" max="100" value="0">0%</progress>
 </p>
-<div role="status" id="status"></div>
+
 <div role="alert" id="complete"></div>
 
 <h2>Notes on this approach</h2>

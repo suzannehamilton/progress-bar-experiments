@@ -2,7 +2,8 @@ let progress = 0,
     interval,
     $dish = $('#carrots'),
     $complete = $('#complete'),
-    $status = $('#status');
+    $status = $('#visible-status'),
+    $ariaStatus = $('#approximate-status');
 
 $('button').one('click', () => {
 
@@ -12,7 +13,7 @@ $('button').one('click', () => {
 
     interval = setInterval(() => {
 
-        progress += Math.floor(Math.random() * 30);
+        progress += Math.floor(Math.random() * 3);
 
         if(progress > 100) progress = 100;
 
@@ -23,6 +24,9 @@ $('button').one('click', () => {
 
         $status
             .text(`${progress}%`)
+
+        $ariaStatus
+            .text(`${10 * progress}%`)
 
         if (progress >= $dish.attr('max')) {
 
